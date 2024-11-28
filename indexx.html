@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talentos Acessíveis</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(90deg, #1E86DB, white);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            width: 700px;
+            height: auto;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .left-panel {
+            background: linear-gradient(90deg, #1E86DB, #155a9d);
+            width: 35%;
+            border-radius: 12px 0 0 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .left-panel .logo-container {
+            background-color: white;
+            border-radius: 50%;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .left-panel img {
+            width: 80px;
+            height: auto;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: bold;
+            font-style: italic;
+            background: linear-gradient(to right, white, #1E86DB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            font-style: italic;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .right-panel {
+            width: 65%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .header h2 {
+            font-size: 20px;
+            color: #1E86DB;
+        }
+
+        .form-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .form-toggle button {
+            padding: 8px 20px;
+            margin: 0 5px;
+            background-color: #1E86DB;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .form-toggle button.active {
+            background-color: #155a9d;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-top: 10px;
+            color: #1E86DB;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #D1D5DB;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button.submit-btn {
+            width: auto;
+            padding: 10px 30px;
+            background-color: #1E86DB;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        button.submit-btn:hover {
+            background-color: #155a9d;
+        }
+
+        .login-section {
+            height: 200px; /* Reduzido para minimizar espaço vazio */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Painel Esquerdo -->
+        <div class="left-panel">
+            <div class="title">Talentos<br>Acessíveis</div>
+            <div class="logo-container">
+                <img src="Logo.png" alt="Logo">
+            </div>
+            <div class="footer-text">
+                Projeto integrador criado pelo grupo Sistemáticos.
+            </div>
+        </div>
+
+        <!-- Painel Direito -->
+        <div class="right-panel">
+            <div class="header">
+                <h2>Bem-vindo!</h2>
+                <p>Escolha uma opção para continuar.</p>
+            </div>
+
+            <div class="form-toggle">
+                <button onclick="showForm('login')" class="active">Entrar</button>
+                <button onclick="showForm('cadastro')">Cadastrar</button>
+            </div>
+
+            <div id="login" class="form-section active login-section">
+                <form id="loginForm">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" placeholder="Digite seu e-mail" required>
+
+                    <label for="login-senha">Senha</label>
+                    <input type="password" id="login-senha" placeholder="Digite sua senha" required>
+
+                    <button type="button" onclick="login()" class="submit-btn">Entrar</button>
+                </form>
+            </div>
+
+            <div id="cadastro" class="form-section">
+                <form id="cadastroForm">
+                    <label for="usuario">Usuário</label>
+                    <input type="text" id="usuario" placeholder="Seu nome de usuário" required>
+
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="Digite seu e-mail" required>
+
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" placeholder="Escolha uma senha segura" required>
+
+                    <label for="data-nascimento">Data de Nascimento</label>
+                    <input type="date" id="data-nascimento" required>
+
+                    <label for="deficiencia">Deficiência</label>
+                    <select id="deficiencia" required>
+                        <option value="">Selecione sua deficiência</option>
+                        <option value="cego">Cego</option>
+                        <option value="mudo">Mudo</option>
+                        <option value="surdo">Surdo</option>
+                        <option value="sindrome de down">Síndrome de Down</option>
+                        <option value="cadeirante">Cadeirante</option>
+                        <option value="autista">Autista</option>
+                        <option value="surdo e mudo">Surdo e Mudo</option>
+                        <option value="outros">Outros</option>
+                    </select>
+
+                    <button type="button" onclick="cadastrar()" class="submit-btn">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showForm(form) {
+            document.querySelectorAll('.form-section').forEach(section => section.classList.remove('active'));
+            document.querySelectorAll('.form-toggle button').forEach(button => button.classList.remove('active'));
+            document.getElementById(form).classList.add('active');
+            if (form === 'login') {
+                document.querySelector('.form-toggle button:first-child').classList.add('active');
+            } else {
+                document.querySelector('.form-toggle button:last-child').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
